@@ -1,5 +1,5 @@
 // actions -> each action -> handler -> generator function
-import { all, takeLatest, takeEvery, call, put } from 'redux-saga/effects'
+import { all, takeLatest, takeEvery, call, put, select } from 'redux-saga/effects'
 import types from '../actionTypes'
 
 const delay = ms => new Promise((resolve, reject) => setTimeout(resolve, ms))
@@ -17,7 +17,7 @@ function* deleteTodo(action) {
 function* addTodoRequest(action) {
   const { payload } = action // we are getting simple string of content
 
-  yield call(delay, 200)
+  yield call(delay, 1000)
 
   yield put({
     type: types.ADD_TODO_SUCCESS,
